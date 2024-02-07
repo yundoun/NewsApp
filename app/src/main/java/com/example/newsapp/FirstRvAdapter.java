@@ -34,7 +34,7 @@ public class FirstRvAdapter extends RecyclerView.Adapter<FirstRvAdapter.MyViewHo
 
     public void onBindViewHolder(@NonNull FirstRvAdapter.MyViewHolder holder, int position) {
         // 현재 위치의 DataModel 객체를 가져와서, 텍스트와 이미지를 뷰 홀더의 뷰에 설정합니다.
-        holder.tvTitle.setText(firstDataModels.get(position).getText1());
+        holder.tvTitle.setText(firstDataModels.get(position).getTitle());
     }
     public int getItemCount() {
         return firstDataModels.size();

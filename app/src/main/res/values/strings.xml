@@ -2,23 +2,21 @@
     <string name="app_name">NewsApp</string>
 
     <string-array name="first_items">
-        <item>더미 데이터 1</item>
-        <item>더미 데이터 2</item>
-        <item>더미 데이터 3</item>
-        <item>더미 데이터 4</item>
-        <item>더미 데이터 5</item>
-        <item>더미 데이터 6</item>
-        <item>더미 데이터 7</item>
-        <item>더미 데이터 8</item>
-        <item>더미 데이터 9</item>
-        <item>더미 데이터 10</item>
-        <item>더미 데이터 11</item>
-        <item>더미 데이터 12</item>
-        <item>더미 데이터 13</item>
-        <item>더미 데이터 14</item>
-        <item>더미 데이터 15</item>
+        <item>클린스만 “사퇴? 대회 분석할 것”…선수들은 감독 두둔</item>
+        <item>혁신적인 기술 발전</item>
+        <item>글로벌 시장 동향</item>
+        <item>사회적 변화와 함께하는 비즈니스 전략</item>
+        <item>환경 보호에 대한 새로운 접근법</item>
+        <item>건강과 웰빙을 위한 최신 정보</item>
+        <item>인간 중심의 디자인과 사용자 경험</item>
+        <item>디지털 시대의 새로운 소비 트렌드</item>
+        <item>글로벌 경제의 변화와 영향</item>
+        <item>사이버 보안과 프라이버시에 대한 전망</item>
+        <item>인공지능과 머신 러닝의 혁신적 활용</item>
+        <item>교육과 미래 일자리에 대한 전략적 접근</item>
+        <item>건강한 라이프스타일을 위한 조언과 팁</item>
+        <item>지속 가능한 에너지 및 자원 관리 전략</item>
+        <item>문화와 예술의 다양성과 발전에 대한 이야기</item>
     </string-array>
-
-    <string name="a_soccer">테스트</string>
 
 </resources>

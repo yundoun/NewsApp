@@ -48,11 +48,21 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new ScreenSlidePagerAdapter(this));
 
         TabLayout tabs = findViewById(R.id.tabMain);
-        new TabLayoutMediator(tabs, viewPager,
-                (tab, position) -> {
-                    // 탭에 표시될 텍스트 설정. 필요에 따라 수정
-                    tab.setText("Tab " + (position + 1));
-                }
-        ).attach();
+        new TabLayoutMediator(tabs, viewPager, (tab, position) -> {
+            switch (position) {
+                case 0:
+                    tab.setText("뉴스레터");
+                    break;
+                case 1:
+                    tab.setText("신문보기");
+                    break;
+                case 2:
+                    tab.setText("해외뉴스");
+                    break;
+                default:
+                    tab.setText("탭 " + (position + 1));
+                    break;
+            }
+        }).attach();
     }
 }
