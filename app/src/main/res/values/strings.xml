@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">NewsApp</string>
+
+    <string-array name="first_items">
+        <item>더미 데이터 1</item>
+        <item>더미 데이터 2</item>
+        <item>더미 데이터 3</item>
+        <item>더미 데이터 4</item>
+        <item>더미 데이터 5</item>
+        <item>더미 데이터 6</item>
+        <item>더미 데이터 7</item>
+        <item>더미 데이터 8</item>
+        <item>더미 데이터 9</item>
+        <item>더미 데이터 10</item>
+        <item>더미 데이터 11</item>
+        <item>더미 데이터 12</item>
+        <item>더미 데이터 13</item>
+        <item>더미 데이터 14</item>
+        <item>더미 데이터 15</item>
+    </string-array>
+
+    <string name="a_soccer">테스트</string>
+
 </resources>
