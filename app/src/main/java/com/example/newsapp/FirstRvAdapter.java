@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +17,7 @@ public class FirstRvAdapter extends RecyclerView.Adapter<FirstRvAdapter.MyViewHo
 
     ArrayList<FirstDataModel> firstDataModels;
 
-    public FirstRvAdapter(Context context, ArrayList<FirstDataModel> dataModels){
+    public FirstRvAdapter(Context context, ArrayList<FirstDataModel> dataModels) {
         this.context = context;
         this.firstDataModels = dataModels;
     }
@@ -37,6 +36,7 @@ public class FirstRvAdapter extends RecyclerView.Adapter<FirstRvAdapter.MyViewHo
         holder.tvTitle.setText(firstDataModels.get(position).getTitle());
         holder.tvDate.setText(firstDataModels.get(position).getDate());
     }
+
     public int getItemCount() {
         return firstDataModels.size();
     }
@@ -44,6 +44,7 @@ public class FirstRvAdapter extends RecyclerView.Adapter<FirstRvAdapter.MyViewHo
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvTitle, tvDate;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
