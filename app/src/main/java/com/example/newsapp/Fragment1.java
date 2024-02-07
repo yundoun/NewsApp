@@ -19,6 +19,9 @@ public class Fragment1 extends Fragment {
     int [] images = {
             R.drawable.a_soccer
     };
+    String [] date = {
+            "2024-02-07"
+    };
 
     @Nullable
     @Override
@@ -40,7 +43,7 @@ public class Fragment1 extends Fragment {
     private void setFirstDataModels(){
         String[] items = getResources().getStringArray(R.array.first_items);
         for (int i =0; i<items.length; i++){
-            firstDataModels.add(new FirstDataModel(items[i],images[0] ));
+            firstDataModels.add(new FirstDataModel(items[i],images[0], date[0] ));
         }
     }
 
