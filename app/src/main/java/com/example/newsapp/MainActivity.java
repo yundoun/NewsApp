@@ -3,60 +3,56 @@ package com.example.newsapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
+
+    private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+        public ScreenSlidePagerAdapter(FragmentActivity fa) {
+            super(fa);
+        }
+
+        @Override
+        public Fragment createFragment(int position) {
+            switch (position) {
+                case 0:
+                    return new Fragment1();
+                case 1:
+                    return new Fragment2();
+                case 2:
+                    return new Fragment3();
+                default:
+                    return null; // 이 경우가 발생하지 않도록 주의
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return 3; // 탭의 총 개수
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-
-        Fragment1 fragment1 = new Fragment1();
-        Fragment2 fragment2 = new Fragment2();
-        Fragment3 fragment3 = new Fragment3();
-
-        // 초기 화면 설정
-        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment1).commit();
+        ViewPager2 viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(new ScreenSlidePagerAdapter(this));
 
         TabLayout tabs = findViewById(R.id.tabMain);
-
-        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int position = tab.getPosition();
-
-                Fragment selectedFragment = null;
-
-                switch(position){
-                    case 0:
-                        selectedFragment =fragment1;
-                        break;
-                    case 1:
-                        selectedFragment = fragment2;
-                        break;
-                    case 2:
-                        selectedFragment = fragment3;
-                        break;
+        new TabLayoutMediator(tabs, viewPager,
+                (tab, position) -> {
+                    // 탭에 표시될 텍스트 설정. 필요에 따라 수정
+                    tab.setText("Tab " + (position + 1));
                 }
-                // 안드로이드 앱 내에서 동적으로 프래그먼트를 교체하는 역할
-                if (selectedFragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, selectedFragment).commit();
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
+        ).attach();
     }
 }
