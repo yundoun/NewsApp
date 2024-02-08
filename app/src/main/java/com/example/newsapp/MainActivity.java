@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
         public Fragment createFragment(int position) {
             switch (position) {
                 case 0:
-                    return new Fragment1();
+                    return new NewsLetterActivity();
                 case 1:
-                    return new Fragment2();
+                    return new NewsReadActivity();
                 case 2:
-                    return new Fragment3();
+                    return new NewsOverseasActivity();
                 default:
                     return null; // 이 경우가 발생하지 않도록 주의
             }

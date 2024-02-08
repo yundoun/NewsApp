@@ -13,11 +13,14 @@ import java.util.ArrayList;
 
 public class FirstRvAdapter extends RecyclerView.Adapter<FirstRvAdapter.MyViewHolder> {
 
+    private final NewsDetailInterface newsInterface;
+
     Context context;
 
     ArrayList<FirstDataModel> firstDataModels;
 
-    public FirstRvAdapter(Context context, ArrayList<FirstDataModel> dataModels) {
+    public FirstRvAdapter(Context context, ArrayList<FirstDataModel> dataModels, NewsDetailInterface newsInterface) {
+        this.newsInterface = newsInterface;
         this.context = context;
         this.firstDataModels = dataModels;
     }
@@ -28,7 +31,7 @@ public class FirstRvAdapter extends RecyclerView.Adapter<FirstRvAdapter.MyViewHo
         View view = inflater.inflate(R.layout.first_rv_row, parent, false);
 
         // 생성된 뷰를 사용하여 MyViewHolder 객체를 생성하고 반환합니다.
-        return new FirstRvAdapter.MyViewHolder(view);
+        return new FirstRvAdapter.MyViewHolder(view, newsInterface);
     }
 
     public void onBindViewHolder(@NonNull FirstRvAdapter.MyViewHolder holder, int position) {
@@ -45,10 +48,24 @@ public class FirstRvAdapter extends RecyclerView.Adapter<FirstRvAdapter.MyViewHo
 
         TextView tvTitle, tvDate;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, NewsDetailInterface newsInterface) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDate = itemView.findViewById(R.id.tvDate);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (newsInterface != null){
+                        int position = getAdapterPosition();
+
+                        if (position != RecyclerView.NO_POSITION){
+                            newsInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 

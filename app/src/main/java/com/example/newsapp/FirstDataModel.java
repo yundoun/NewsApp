@@ -15,4 +15,5 @@ public class FirstDataModel {
         return title;
     }
     public String getDate() {return date;}
+    public int getImage() {return image;}
 }
