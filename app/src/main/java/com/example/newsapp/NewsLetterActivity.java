@@ -12,13 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 
 public class NewsLetterActivity extends Fragment implements NewsDetailInterface {
 
-    ArrayList<FirstDataModel> firstDataModels = new ArrayList<>();
+    ArrayList<LetterDataModel> itemList = new ArrayList<>();
 
     int[] images = {
             R.drawable.a_soccer
@@ -36,24 +34,24 @@ public class NewsLetterActivity extends Fragment implements NewsDetailInterface 
         // 레이아웃 매니저 설정
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         // 데이터 설정
-        setFirstDataModels();
+        setItemList();
 
-        FirstRvAdapter adapter = new FirstRvAdapter(getActivity(), firstDataModels, this);
+        LetterRvAdapter adapter = new LetterRvAdapter(getActivity(), itemList, this);
         recyclerView.setAdapter(adapter);
 
         return firstView;
     }
 
-    private void setFirstDataModels() {
+    private void setItemList() {
         String[] items = getResources().getStringArray(R.array.first_items);
         for (String item : items) {
-            firstDataModels.add(new FirstDataModel(item, images[0], date[0]));
+            itemList.add(new LetterDataModel(item, images[0], date[0]));
         }
     }
 
     @Override
     public void onItemClick(int position) {
-        FirstDataModel selectedNews = firstDataModels.get(position);
+        LetterDataModel selectedNews = itemList.get(position);
 
         Intent detailIntent = new Intent(getActivity(), NewsDetailActivity.class);
         detailIntent.putExtra("news_title", selectedNews.getTitle());
